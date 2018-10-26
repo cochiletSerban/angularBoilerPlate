@@ -1,0 +1,48 @@
+<!-- top bar -->
+<div class="bar"></div>
+
+<!-- image slider -->
+<div class="slider fullscreen" materialize="slider" [materializeParams]="[{fullWidth: true,indicators:false}]" *ngIf="bgs.url.length > 2">
+  <ul class="slides">
+    <li class="bgFix"  *ngFor = "let i of bgs.url" [ngStyle]="{ 'background-image': 'url(' + i + ')'}"></li>
+  </ul>
+</div>
+
+
+<!-- valign container -->
+<div class="valign-wrapper row centerContainer" id="id">
+
+  <div class="col s12 center-align">
+
+    <!-- logo -->
+    <div class="row">
+      <div class="col s12">
+        <img src="../../assets/img/eth.png" class="responsive-img logo logoOver animated" #eth id="eth">
+        <img src="../../assets/img/JustPiky.png" class="responsive-img logo logoOver" #logo>
+        <img src="../../assets/img/PikyFaraEth.png" class="responsive-img logo" >
+      </div>
+    </div>
+    <!-- description (under logo) -->
+    <div class="row">
+      <div class="col s12 ">
+        <h5 class="shadow" >
+          <i fa [name]="'diamond'" [size]=1 #fa1></i>
+          Discover yourself through images !
+          <i fa [name]="'diamond'" [size]=1 #fa2></i>
+        </h5>
+      </div>
+    </div>
+    <!-- button and it's leafs -->
+    <div class="row ">
+      <div class="col s12 ">
+        <img src="../../assets/img/GetStartedButton.png" class="buttonLeafs animated" #frunze />
+        <a class="waves-effect waves-light btn getStarted" (click)="updateBg()" (mouseenter)="onHo(true)" (mouseleave)="onHo(false)">
+        <h5>Get Started Now!</h5>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <!-- garss footer -->
+  <div class="grass animated" #grass> </div>
+</div>

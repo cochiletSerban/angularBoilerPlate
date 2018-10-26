@@ -1,0 +1,215 @@
+/*
+                --1--
+*   Late at night it is,              *
+*   this code I write is a tease.     *
+*   Plese let the hardcode end,       *
+*   and let this desing blend.        *
+
+*   May my bugs be features           *
+*   and not these horible creatures,  *
+*   that will make my code break      *
+*   and still keep me awake.          *
+
+*/
+
+:host {
+  /*global component style*/
+  display: block;
+  /*needed to let divs get up to 100vh*/
+  overflow: auto;
+  height: 100%;
+  background-color: rgb(26, 77, 68);
+  /* fall back colors*/
+}
+
+.centerContainer {
+  /* centers the darkernig filter over pic slider */
+  height: 100%;
+  /* valign only works with elem h 100%*/
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(26, 77, 68, 0.6);
+}
+
+.wrapper {
+  /*any child of wrapper will pe aligned h and w center */
+  height: 100vh;
+  /*makes the magic happen and makes the div full height */
+}
+
+.shadow {
+  /* adds some sparkle to the text*/
+  color: white;
+  text-shadow: 3px 0px 5px black;
+}
+
+.bgFix {
+  /* fixes image slider and makes pictures strech properly */
+  background: no-repeat center center;
+  background-size: cover;
+}
+
+i {
+  /* adds some padding to fa icons*/
+  margin: 20px;
+}
+
+.col {
+  /*fixes col postion type to center absolute divs inside of it*/
+  position: relative;
+}
+
+
+
+.logoOver{
+  position: absolute;
+  z-index: 2;
+  animation-delay: 1s;
+}
+
+#eth {
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+
+.btn {
+  /* fixes materilize css bug that cuts btn text */
+  height: 100%;
+  background-color: #61aa25;
+}
+
+.buttonLeafs {
+  min-width: 400px;
+  /* -- absolute centering css magic -- */
+  left: 0;
+  right: 0;
+  animation-delay: 1.3s;
+  margin-left: auto;
+  margin-right: auto;
+  /* --------------------------------- */
+  top: -30px;
+  max-height: 135px;
+  position: absolute;
+  z-index: -1;
+  /* puts leafs under button */
+}
+
+.grass {
+  /* makes a sticky footer that has a png bg
+  and it's under the centerContainer div z-index = -1*/
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+  opacity: 0.9;
+  background-image: url('../../assets/img/grass.png');
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 125px;
+  animation-delay: 1.3s;
+}
+
+.bar {
+  position: fixed;
+  min-width: 100%;
+  min-height: 4px;
+  z-index: 3;
+  background-color: #78ce32;
+}
+
+
+
+/*----------------------------MEDIA QUERIES----------------------------------*/
+
+/* used to keep the piky logo proportionted on all devices */
+
+/* and to trim logo leafs and dollars on small screens */
+
+@media only screen and (min-width: 980px) {
+  .logo {
+    max-width: 275px;
+  }
+
+  /* :host{
+        background-color:white;
+    } */
+}
+
+@media only screen and (max-width: 979px) {
+  .buttonLeafs {
+    display: none;
+  }
+  .fa-diamond {
+    display: none;
+  }
+  .logo {
+    max-width: 200px;
+  }
+  .btn {
+    text-transform: lowercase;
+  }
+  /* :host {
+        background-color:teal;
+    } */
+}
+
+/*----------------------------- Animations/Trans Class--------------------------*/
+
+@keyframes fadein {
+  /* simple fadeIn animation*/
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  /* simple spin animation*/
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes spinBack {
+  /* simple reverse spin animation*/
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pick {
+  0% {
+    transform: matrix(0);
+  }
+  50% {
+    transform: matrix(0.93969262, 0.34202014, -0.34202014, 0.93969262, -15, 10);
+  }
+  100% {
+    transform: matrix(0);
+  }
+}
+
+@keyframes pickBack {
+  0% {
+    transform: matrix(0.93969262, 0.34202014, -0.34202014, 0.93969262, -30, 18);
+  }
+  100% {
+
+    transform: matrix(0);
+  }
+}
