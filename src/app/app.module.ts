@@ -25,7 +25,12 @@ const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
   { path: 'browse', component: HomePageComponent },
-  { path: 'feed', canActivate: [AuthGuardService], component:   FeedComponent}
+  { path: 'feed', canActivate: [AuthGuardService], component:   FeedComponent },
+  { path: 'manage-reservations', component: ManageReservationsComponent },
+  { path: 'user-reservations', component: UserReservationsComponent },
+  { path: 'browse-rooms', component: BrowseRoomsComponent},
+  { path: 'room-layout', component: RoomsLayoutComponent},
+  { path: 'make-reservations', component: MakeReservationsComponent}
 ];
 
 @NgModule({
