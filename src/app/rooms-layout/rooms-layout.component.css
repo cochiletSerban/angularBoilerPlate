@@ -7,31 +7,8 @@ img {
     max-height: 100%;
 }
 
-
 * {
     box-sizing: border-box;
-}
-
-
-#corridor{
-    height: 30vh;
-    background-color: rgb(47,151,132);
-}
-
-#corridor2{
-    height: 40vh;
-    background-color: rgb(47,151,132);
-}
-        
-#rooms {
-    border:2px dotted green;
-    height: 30vh;
-    transition: transform .1s;
-}
-#rooms2 {
-    border:1px dashed green;
-    height: 40vh;
-    transition: transform .1s;
 }
 
 #container{
@@ -39,15 +16,21 @@ img {
     font-weight:bold;
     border:2px solid black;
     height: 100%;
+    background-color:rgb(47,151,132);
 }
 
 .col, .row{
-    padding: 0 !important;
+    padding: 10px !important;
     margin: 0 !important;
 }	
 
-#rooms:hover, #rooms2:hover {
-    transform: scale(1.2); 
+#rooms {
+    height: auto;
+    transition: transform .1s;
+}
+
+#rooms:hover {
+    transform: scale(1.05); 
 }
 
 #berlin {
@@ -56,12 +39,14 @@ img {
     width:100%;
     background-position: center center; 
     background-size:cover;
+    background-repeat:no-repeat;
 }
 
 #paris {
     background: url("../../assets/img/paris.jpg");
     background-size:cover;
     background-position: center center; 
+    background-repeat:no-repeat;
     height:100%;
     width:100%;
 }
@@ -69,7 +54,8 @@ img {
 #copenhagen {
     background: url("../../assets/img/copenhagen.jpg");
     background-size:cover;
-    background-position: center center; 
+    background-position: center center;
+    background-repeat:no-repeat; 
     height:100%;
     width:100%;
 }
@@ -78,6 +64,7 @@ img {
     background: url("../../assets/img/kiev.jpg");
     background-size:cover;
     background-position: center center; 
+    background-repeat:no-repeat;
     height:100%;
     width:100%;
 }
@@ -86,6 +73,7 @@ img {
     background: url("../../assets/img/bucharest.jpg");
     background-size:cover;
     background-position: center center; 
+    background-repeat:no-repeat;
     height:100%;
     width:100%;
 }
@@ -93,7 +81,8 @@ img {
 #stockholm {
     background: url("../../assets/img/stockholm.jpg");
     background-size:cover;
-    background-position: center center; 
+    background-position: center center;
+    background-repeat:no-repeat; 
     height:100%;
     width:100%;
 }
