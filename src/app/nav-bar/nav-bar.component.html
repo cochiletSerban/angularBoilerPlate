@@ -1,17 +1,17 @@
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo left  ">
-      <img src="download.jpg">
+      <img src="../../assets/img/birdBanner.png">
     </a>
     <ul id="nav-mobile" class="right ">
-      <li class="active">
-        <a href="#">Make Reservation</a>
+      <li routerLink="/make-reservation" routerLinkActive="active">
+        <a >Make Reservation</a>
+      </li>
+      <li routerLinkActive="/user-reservation" routerLinkActive="active">
+        <a> See Reservation</a>
       </li>
       <li>
-        <a href="#" >See Reservation</a>
-      </li>
-      <li>
-        <a href="#" class="hide-on-med-and-down">Logout</a>
+        <a routerLinkActive="active-link" class="hide-on-med-and-down">Logout</a>
       </li>
     </ul>
   </div>
