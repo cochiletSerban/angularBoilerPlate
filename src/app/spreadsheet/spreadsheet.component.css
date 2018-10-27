@@ -4,7 +4,7 @@
     text-align: center;
     line-height: 50px;
     font-size: 28px;
-    background-color: tomato;
+    background-color: #61AA25;
     color: white;
     padding: 0;
 }
@@ -16,7 +16,12 @@
     text-align: center;
     line-height: 50px;
     font-size: 28px;
-    background-color: tomato;
+    background-color: #61AA25;
     color: white;
     padding: 0;
+}
+
+.color {
+    background-color: #61AA25;
+    min-height: 53px;
 }
