@@ -1,4 +1,26 @@
 <app-nav-bar></app-nav-bar>
-<p>
-  make-reservations works!
-</p>
+
+<div class="container-fluid">
+  <form class="row" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <div class="col m3">
+      <label for="calendar">Date</label>
+      <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
+      <label for="roomName">Room name</label>
+      <input formControlName="roomName" id="roomName" type="text"/>      
+
+      <label for="roomTypeForm">Room type</label>
+      <select class="select__dd" id="roomTypeForm" name="roomTypeForm" formControlName="roomTypeForm">
+        <option *ngFor="let roomType of roomTypes" [ngValue]="roomType.toUpperCase()">{{roomType}}</option>
+      </select>
+
+      <label for="roomFloorForm">Room floor</label>
+      <select class="select__dd" id="roomFloorForm" name="roomFloorForm" formControlName="roomFloorForm">
+        <option *ngFor="let roomFloor of roomFloors" [ngValue]="roomFloor">{{roomFloor}}</option>
+      </select>
+      <button type="submit">Submit</button>
+    </div>
+    <div class="col m3">
+      <input id="timepicker_ampm_dark" class="timepicker" type="time">
+    </div>
+  </form>
+</div>
