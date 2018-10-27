@@ -88,9 +88,10 @@ export class SpreadsheetComponent implements OnInit {
       let start = reservation.startTime;
       let end = reservation.endTime;
       for (let i = start; i < end; i++) {
-        console.log("Pula");
+        this.workingHours[i-1].reserved = true;
       }
     }
+    console.log(this.workingHours);
   }
 
 }
