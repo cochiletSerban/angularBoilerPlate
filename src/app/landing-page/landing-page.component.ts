@@ -3,6 +3,7 @@ import { GetBgService } from '../services/get-bg.service';
 import { BgArray } from '../objects/BgArray';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome';
 import { MyJqService } from '../services/my-jq.service';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -25,7 +26,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     url: ["https://www.ps4wallpapers.com/wp-content/uploads/2018/01/PS4Wallpapers.com_5a5d669a96788_JessicaNigri.jpg"]
   };
 
-  constructor(private bg: GetBgService, private render: Renderer2, private ref:ElementRef) {}
+  constructor(private bg: GetBgService, private render: Renderer2, private ref:ElementRef, private router:Router) {}
 
   ngOnInit() {
     this.render.addClass(this.frunze.nativeElement,"zoomIn");
@@ -47,5 +48,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       this.render.setStyle(this.fa1.nativeElement, 'animation', 'spinBack 1s forwards');
       this.render.setStyle(this.fa2.nativeElement, 'animation', 'spinBack 1s forwards');
     }
+  }
+  goToLogin() {
+    this.router.navigate(['login']);
   }
 }

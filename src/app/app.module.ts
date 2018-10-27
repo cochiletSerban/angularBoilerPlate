@@ -14,6 +14,12 @@ import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ManageReservationsComponent } from './manage-reservations/manage-reservations.component';
+import { UserReservationsComponent } from './user-reservations/user-reservations.component';
+import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
+import { RoomsLayoutComponent } from './rooms-layout/rooms-layout.component';
+import { MakeReservationsComponent } from './make-reservations/make-reservations.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -28,7 +34,13 @@ const appRoutes: Routes = [
     LandingPageComponent,
     HomePageComponent,
     FeedComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    ManageReservationsComponent,
+    UserReservationsComponent,
+    BrowseRoomsComponent,
+    RoomsLayoutComponent,
+    MakeReservationsComponent,
+    NavBarComponent
   ],
   imports: [
     MaterializeModule,
