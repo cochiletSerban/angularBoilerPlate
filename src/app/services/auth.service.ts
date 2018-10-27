@@ -26,6 +26,7 @@ export class AuthService {
   private logUser(token){
     this.userStatus = true;
     this.token = token;
+    localStorage.setItem('token', token);
     return this.userStatus;
   }
 
