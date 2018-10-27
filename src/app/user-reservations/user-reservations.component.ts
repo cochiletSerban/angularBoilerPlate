@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { SpreadsheetComponent} from './../spreadsheet/spreadsheet.component';
 import { FormGroup, FormControl } from "@angular/forms";
+import { GetReservationsService } from "../services/get-reservations.service";
+import { Reservation } from "../models/reservation";
 declare var $: any;
 
 @Component({
@@ -11,16 +13,17 @@ declare var $: any;
 export class UserReservationsComponent implements OnInit {
 
   date : '';
-  constructor () {}
+  reservations: Reservation[];
+  constructor (private _getReservationService : GetReservationsService) {}
 
   ngOnInit(){
   }
 
-  dataChange() {
-    console.log("CCeva");
-    $('.btn-flat .picker__close .waves-effect').click(function () {
-      console.log(this.date);
-    });
+  dateChange() {
+    this._getReservationService.getReservations(this.date, null, null, null, null, null, null, null).subscribe(resp => {
+      console.log(resp);
+      this.reservations = resp._embedded.reservation;
+    })
   }
 }
 

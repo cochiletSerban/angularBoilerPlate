@@ -1,2 +1,2 @@
-<input type="text" [(ngModel)]="date" class="datepicker" name="datepicker" materialize="pickadate" [materializeParams]="[{format:'yyyy-mm-dd'}]"/>
-<app-spreadsheet></app-spreadsheet>
+<input type="text" [(ngModel)]="date" (ngModelChange)="dateChange()" class="datepicker" name="datepicker" materialize="pickadate" [materializeParams]="[{format:'yyyy-mm-dd'}]"/>
+<app-spreadsheet [reservations]="reservations"></app-spreadsheet>
