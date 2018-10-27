@@ -1,0 +1,116 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+#corridor{
+    height: 30vh;
+    background-color: rgb(47,151,132);
+}
+
+#corridor2{
+    height: 40vh;
+    background-color: rgb(47,151,132);
+}
+        
+#rooms {
+    border:2px dotted green;
+    height: 30vh;
+    transition: transform .1s;
+}
+#rooms2 {
+    border:1px dashed green;
+    height: 40vh;
+    transition: transform .1s;
+}
+
+#container{
+    text-align:center;
+    font-weight:bold;
+    border:2px solid black;
+    height: 100%;
+}
+
+.col, .row{
+    padding: 0 !important;
+    margin: 0 !important;
+}	
+
+#rooms:hover, #rooms2:hover {
+    transform: scale(1.2); 
+}
+
+#berlin {
+    background: url("../../assets/img/berlin.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+}
+
+#paris {
+    background: url("../../assets/img/paris.jpg");
+    background-size:cover;
+    background-position: center center; 
+    height:100%;
+    width:100%;
+}
+
+#copenhagen {
+    background: url("../../assets/img/copenhagen.jpg");
+    background-size:cover;
+    background-position: center center; 
+    height:100%;
+    width:100%;
+}
+
+#kiev {
+    background: url("../../assets/img/kiev.jpg");
+    background-size:cover;
+    background-position: center center; 
+    height:100%;
+    width:100%;
+}
+
+#bucharest {
+    background: url("../../assets/img/bucharest.jpg");
+    background-size:cover;
+    background-position: center center; 
+    height:100%;
+    width:100%;
+}
+
+#stockholm {
+    background: url("../../assets/img/stockholm.jpg");
+    background-size:cover;
+    background-position: center center; 
+    height:100%;
+    width:100%;
+}
+
+
+#layer1 {
+    opacity: 0.5;
+    background-color: black;
+    color: white;
+    height:100%;
+    width:100%;
+}
+#layer1:hover {
+    opacity: 0.8;
+}
+
+h5	{
+    padding-bottom: 20px;
+    margin :0;
+}
