@@ -1,3 +1,50 @@
 .select__dd {
     display: block
 }
+
+.col.grid-example {
+    border: 1px solid #eee;
+    margin: 7px 0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 28px;
+    background-color: #61AA25;
+    color: white;
+    padding: 0;
+}
+
+@media (min-width: 992px) {
+    .container-scroll {
+      overflow-x: auto;
+    }
+    .container-scroll .columns-16 {
+      width: 133.33333333vw;  /* = 100vw * 16/12 */
+    }
+    .container-scroll .columns-24 {
+      width: 200vw;  /* = 100vw * 24/12 */
+    }
+    .container-scroll .col-md-2 {
+      width: 16.66666667vw !important;
+    }
+  }
+  
+  .container-scroll > .row {
+    margin-top: 24px;
+  }
+  .container-scroll > .row > .col-md-2 {
+    font-weight: bold;
+    text-align: center;
+  }
+
+.color {
+    min-height: 53px !important;
+    border-left: 2px solid black;
+    text-align: center;
+    line-height: 53px;
+}
+
+.row-no-white {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 2px solid black;
+}

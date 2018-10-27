@@ -15,6 +15,61 @@ import { Room } from '../models/room';
 })
 export class MakeReservationsComponent implements OnInit {
 
+  workingHours = [
+    {
+      id: 1,
+      hour:"08:00"
+    },
+    {
+      id: 2,
+      hour:"09:00"
+    },
+    {
+      id: 3,
+      hour:"10:00"
+    },
+    {
+      id: 4,
+      hour:"11:00"
+    },
+    {
+      id: 5,
+      hour:"12:00"
+    },
+    {
+      id: 6,
+      hour:"13:00"
+    },
+    {
+      id: 7,
+      hour:"14:00"
+    },
+    {
+      id: 8,
+      hour:"15:00"
+    },
+    {
+      id: 9,
+      hour:"16:00"
+    },
+    {
+      id: 10,
+      hour:"17:00"
+    },
+    {
+      id: 11,
+      hour:"18:00"
+    },
+    {
+      id: 12,
+      hour:"19:00"
+    },
+    {
+      id: 13,
+      hour:"20:00"
+    }
+  ];
+
   calendarForm: FormGroup;
   reservationForm: FormGroup;
   roomForm: FormGroup;
@@ -26,6 +81,10 @@ export class MakeReservationsComponent implements OnInit {
   roomFloors = ['All', 0, 1, 2, 3];
   reservations: Reservation[] = [];
   rooms: Room[];
+  startHourForm: FormGroup;
+  endHourForm: FormGroup;
+  startingHours = [];
+  endingHours = [];
 
   constructor(private _getReservationsService: GetReservationsService, private _getRoomService: GetRoomsService) { }
 
@@ -42,12 +101,35 @@ export class MakeReservationsComponent implements OnInit {
     this.roomForm = new FormGroup({
       'room': new FormControl('All')
     });
+    this.startHourForm = new FormGroup({
+      'startHour': new FormControl(null, Validators.required)
+    });
+    this.startHourForm.get('startHour').valueChanges.subscribe(value => {
+      this.endingHours = [];
+      let stillAdd = true;
+      this.workingHours.forEach(workingHour => {
+        if (workingHour.id >= value) {
+          if (!this.isRoomReserved(this.roomForm.get('room').value, workingHour.id) && stillAdd) {
+            this.endingHours.push(workingHour);
+          } else {
+            stillAdd = false;
+          }
+        }
+      });
+      this.endHourForm.get('endHour').setValue(null);
+    });
+    this.endHourForm = new FormGroup({
+      'endHour': new FormControl(null, Validators.required)
+    });
+    this.roomFilterForm.valueChanges.subscribe(data => this.filterRooms());
+    this.roomForm.get('room').valueChanges.subscribe(data => this.selectRoom());
   }
 
   dateChanged() {
     console.log(this.date);
     if (this.date) {
       this.filterRooms();
+      this.getReservations();
     }
   }
 
@@ -69,11 +151,24 @@ export class MakeReservationsComponent implements OnInit {
   }
 
   getReservations() {
+    let roomName = null;
+    if (this.roomForm.get('room').value !== 'All') {
+      roomName = this.roomForm.get('room').value;
+    }
     this._getReservationsService.getReservations(this.date,
-       this.roomForm.get('room').value === 'All' ? null : this.roomForm.get('room').value,
-       null, null, null, null, null, null).subscribe(resp => {
-      console.log(resp);
-      this.reservations = resp._embedded.reservation;
+      null, roomName, null, null, null, null, null).subscribe(resp => {
+      this.reservations = resp._embedded ? resp._embedded.reservation : [];
+      if (this.roomForm.get('room').value !== 'All') {
+        this.startingHours = [];
+        this.startHourForm.get('startHour').setValue(null);
+        this.startHourForm.get('startHour').updateValueAndValidity();
+        this.endHourForm.get('endHour').setValue(null);
+        this.workingHours.forEach(workingHour => {
+          if (!this.isRoomReserved(this.roomForm.get('room').value, workingHour.id)) {
+            this.startingHours.push(workingHour);
+          }
+        });
+      }
     });
   }
 
@@ -84,4 +179,22 @@ export class MakeReservationsComponent implements OnInit {
     return null;
   }
 
+  isRoomReserved(room, workingHour): boolean {
+    let reserved = false;
+    this.reservations.forEach(reservation => {
+      if (reservation.roomData.name === room && workingHour >= reservation.startTime && workingHour <= reservation.endTime) {
+        reserved = true;
+      }
+    });
+    return reserved;
+  }
+
+  saveReservation() {
+    // TODO: replace email
+    this._getReservationsService.saveReservation(this.date, 'vasile@gmail.com',
+      this.roomForm.get('room').value, this.startHourForm.get('startHour').value, this.endHourForm.get('endHour').value)
+      .subscribe(data => {
+        this.getReservations();
+      });
+  }
 }
