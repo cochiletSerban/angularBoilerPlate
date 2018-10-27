@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild, Renderer2, AfterViewInit } fr
 import { AuthService } from '../services/auth.service';
 import { User } from '../objects/User';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+declare var $:any;
 
 @Component({
   selector: 'app-auth-page',
@@ -17,6 +19,8 @@ export class AuthPageComponent implements OnInit {
   @ViewChild('fromContainer') formContainer;
   @ViewChild('tab1') tab1;
   @ViewChild('tab2') tab2;
+  @ViewChild('activeLogin') activeLogin;
+  @ViewChild('activeRegister') activeRegister;
   showLogin = true;
   myEmailValidator = '';
   myPasswordValidator = '';
@@ -27,7 +31,7 @@ export class AuthPageComponent implements OnInit {
   loginForm: FormGroup;
   registerForm: FormGroup;
   show = false;
-  constructor(private auth: AuthService, private render: Renderer2) { }
+  constructor(private auth: AuthService, private render: Renderer2, private router:Router) { }
 
 
   ngOnInit() {
@@ -84,6 +88,7 @@ export class AuthPageComponent implements OnInit {
       this.auth.login(this.user).subscribe(
         resp => {
           console.log(resp);
+          this.router.navigate(['/manage-reservations']);
         },
         err => {
           this.errMsg = err.error;
@@ -138,7 +143,15 @@ export class AuthPageComponent implements OnInit {
       this.myUserValidation = 'valid';
       this.errMsg = '';
       this.auth.register(this.user).subscribe(
-        resp => console.log(resp),
+        (resp) => {
+          console.log(resp);
+          this.cleanForms('register');
+          this.render.removeClass(this.activeRegister.nativeElement,'active');
+          this.render.addClass(this.activeLogin.nativeElement,'active');
+          //$('.indicator').hide();
+          this.activeLogin.nativeElement.click()
+          //this.activeRegister.nativeElement.click()
+        },
         err => {
           this.errMsg = err.error;
           this.show = true;

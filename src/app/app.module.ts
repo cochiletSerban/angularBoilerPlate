@@ -1,7 +1,7 @@
 import { MaterializeModule } from 'angular2-materialize';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Angular2FontawesomeModule } from  'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from  'angular2-fontawesome/angular2-fontawesome';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -20,6 +20,8 @@ import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
 import { RoomsLayoutComponent } from './rooms-layout/rooms-layout.component';
 import { MakeReservationsComponent } from './make-reservations/make-reservations.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
+import { GetReservationsService } from './services/get-reservations.service';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -46,6 +48,8 @@ const appRoutes: Routes = [
     RoomsLayoutComponent,
     MakeReservationsComponent,
     NavBarComponent,
+    UserReservationsComponent,
+    SpreadsheetComponent
   ],
   imports: [
     MaterializeModule,
@@ -54,9 +58,10 @@ const appRoutes: Routes = [
     FormsModule,
     Angular2FontawesomeModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel],
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
