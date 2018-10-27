@@ -7,4 +7,5 @@ export const environment = {
   production: false,
   // apiUrl: 'http://localhost:5000'
   apiUrl: 'https://smarthack2018.herokuapp.com'
+  // swagger: https://smarthack2018.herokuapp.com/swagger-ui.html#
 };
