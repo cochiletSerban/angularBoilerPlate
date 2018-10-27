@@ -13,7 +13,7 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, NgModel, FormsModule } from '@angular/forms';
 import { ManageReservationsComponent } from './manage-reservations/manage-reservations.component';
 import { UserReservationsComponent } from './user-reservations/user-reservations.component';
 import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
@@ -45,17 +45,18 @@ const appRoutes: Routes = [
     BrowseRoomsComponent,
     RoomsLayoutComponent,
     MakeReservationsComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     MaterializeModule,
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     Angular2FontawesomeModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GetBgService, AuthGuardService, AuthService],
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
