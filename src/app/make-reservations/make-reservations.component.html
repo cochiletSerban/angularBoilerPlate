@@ -1,4 +1,73 @@
 <app-nav-bar></app-nav-bar>
-<p>
-  make-reservations works!
-</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m3">
+      <form [formGroup]="calendarForm">
+        <label for="calendar">Date</label>
+        <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
+      </form>
+      <form *ngIf="calendarForm.get('calendar').valid && this.roomForm.get('room').value === 'All'" [formGroup]="roomFilterForm" (ngSubmit)="filterRooms()">
+        <label for="capacity">Minimum capacity</label>
+        <input formControlName="capacity" id="capacity" type="number"/>    
+  
+        <label for="roomName">Room name</label>
+        <input formControlName="roomName" id="roomName" type="text"/>      
+  
+        <label for="roomTypeForm">Room type</label>
+        <select class="select__dd" id="roomTypeForm" name="roomTypeForm" formControlName="roomTypeForm">
+          <option *ngFor="let roomType of roomTypes" [ngValue]="roomType.toUpperCase()">{{roomType}}</option>
+        </select>
+  
+        <label for="roomFloorForm">Room floor</label>
+        <select class="select__dd" id="roomFloorForm" name="roomFloorForm" formControlName="roomFloorForm">
+          <option *ngFor="let roomFloor of roomFloors" [ngValue]="roomFloor">{{roomFloor}}</option>
+        </select>
+        <button type="submit">Filter rooms</button>
+      </form>
+      <form *ngIf="calendarForm.get('calendar').valid" [formGroup]="roomForm" (ngSubmit)="selectRoom()">
+        <label for="room">Room</label>
+        <select class="select__dd" id="room" name="room" formControlName="room">
+          <option ngValue="All">All</option>
+          <option *ngFor="let room of rooms" [ngValue]="room.name">{{room.name}}</option>
+        </select>
+        <button type="submit">Select room</button>
+      </form>
+      <form *ngIf="this.roomForm.get('room').value !== 'All'" [formGroup]="startHourForm" >
+        <label for="startHour">Starting hour</label>
+        <select class="select__dd" id="startHour" name="startHour" formControlName="startHour">
+          <option *ngFor="let startingHour of startingHours" [ngValue]="startingHour.id">{{startingHour.hour}}</option>
+        </select>
+      </form>
+      <form *ngIf="this.startHourForm.valid" [formGroup]="endHourForm">
+        <label for="endHour">Ending hour</label>
+        <select class="select__dd" id="endHour" name="endHour" formControlName="endHour">
+          <option *ngFor="let endingHour of endingHours" [ngValue]="endingHour.id">{{endingHour.hour}}</option>
+        </select>
+      </form>
+      <button *ngIf="this.endHourForm.valid" (click)="saveReservation()">Reserve room</button>
+    </div>
+    <div class="col m9 container-scroll" *ngIf="roomForm.get('room').value === 'All'">
+      <div class="row row-no-white">
+        <div class="col s2 color"></div>
+        <div class="col s2 color" *ngFor="let room of rooms">{{room.name}}</div>
+      </div>
+      <div class="row row-no-white" *ngFor="let workingHour of workingHours">
+        <div class="col s2 color">{{workingHour.hour}}</div>
+        <div class="col s2 color" *ngFor="let room of rooms" [style.background-color]="isRoomReserved(room.name, workingHour.id) ? 'green' : 'white'" >
+        </div>
+      </div>
+    </div>
+    <div class="col m9 container-scroll" *ngIf="roomForm.get('room').value !== 'All'">
+        <div class="row row-no-white">
+          <div class="col s2 color"></div>
+          <div class="col s10 color">{{roomForm.get('room').value}}</div>
+        </div>
+        <div class="row row-no-white" *ngFor="let workingHour of workingHours">
+          <div class="col s2 color">{{workingHour.hour}}</div>
+          <div class="col s10 color" [style.background-color]="isRoomReserved(roomForm.get('room').value, workingHour.id) ? 'green' : 'white'">
+          </div>
+        </div>
+    </div>
+  </div>  
+</div>

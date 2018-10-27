@@ -22,6 +22,7 @@ import { MakeReservationsComponent } from './make-reservations/make-reservations
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
+import { GetRoomsService } from './services/get-rooms.service';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService],
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
