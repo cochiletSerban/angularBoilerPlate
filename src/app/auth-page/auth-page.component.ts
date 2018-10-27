@@ -146,10 +146,11 @@ export class AuthPageComponent implements OnInit {
         (resp) => {
           console.log(resp);
           this.cleanForms('register');
-          //this.render.removeClass(this.activeRegister.nativeElement,'active');
-         // this.render.addClass(this.activeLogin.nativeElement,'active');
+          this.render.removeClass(this.activeRegister.nativeElement,'active');
+          this.render.addClass(this.activeLogin.nativeElement,'active');
           //$('.indicator').hide();
-          $('#login').click();
+          this.activeLogin.nativeElement.click()
+          //this.activeRegister.nativeElement.click()
         },
         err => {
           this.errMsg = err.error;
