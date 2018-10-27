@@ -1,6 +1,36 @@
-div {
-    height: 45px;
-    border:2px solid red;
-    margin:0px;
-    padding: 0px;
-}
+        li a:hover {
+			background-color: #7ec146;
+		}
+		
+		*{
+			box-sizing: border-box;
+		}
+		
+		img{
+			width:45px;
+			height:45px;
+		}
+		
+		
+		nav {
+			background-color: #61aa25;
+			height:45px;
+		}
+			
+		ul{
+			padding: 0px;
+			margin: 0px;
+			text-align: center;
+			display:inline-block;
+			vertical-align:top;
+		}
+		
+		a {
+			line-height: 45px;
+			text-align:center;
+			
+		}
+		
+		nav div ul li.active {
+			background-color:#2e6500;
+		}
