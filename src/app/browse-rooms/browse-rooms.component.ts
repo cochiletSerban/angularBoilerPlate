@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browse-rooms',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseRoomsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  goToBr() {
+    this.router.navigate(['/room-layout']);
+  }
+
+  goToMk() {
+    this.router.navigate(['/make-reservations']);
+  }
 }
