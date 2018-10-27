@@ -64,6 +64,10 @@ export class MakeReservationsComponent implements OnInit {
     }
   }
 
+  selectRoom() {
+    this.getReservations();
+  }
+
   getReservations() {
     this._getReservationsService.getReservations(this.date,
        this.roomForm.get('room').value === 'All' ? null : this.roomForm.get('room').value,
