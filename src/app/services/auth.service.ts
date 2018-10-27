@@ -5,12 +5,12 @@ import 'rxjs'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoginResponse } from '../objects/loginResponse';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
   token: string;
-  url = 'http://piky.herokuapp.com/';
   userStatus = false;
 
   constructor(private http:HttpClient) {}
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   register(user:User){
-   return this.http.post(this.url + 'register', user);
+   return this.http.post(environment.apiUrl + '/register', user);
   }
 
   private logUser(token){
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   login(user:User) {
-    return this.http.post<LoginResponse>(this.url + 'login', {email:user.email, password:user.password})
+    return this.http.post<LoginResponse>(environment.apiUrl + '/login', {email:user.email, password:user.password})
       .map(resp => this.logUser(resp.token))
   }
 
