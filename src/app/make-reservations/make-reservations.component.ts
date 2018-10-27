@@ -108,8 +108,8 @@ export class MakeReservationsComponent implements OnInit {
       this.endingHours = [];
       let stillAdd = true;
       this.workingHours.forEach(workingHour => {
-        if (workingHour.id >= value) {
-          if (!this.isRoomReserved(this.roomForm.get('room').value, workingHour.id) && stillAdd) {
+        if (workingHour.id > value) {
+          if (!this.isRoomReserved(this.roomForm.get('room').value, workingHour.id - 1) && stillAdd) {
             this.endingHours.push(workingHour);
           } else {
             stillAdd = false;
@@ -182,7 +182,7 @@ export class MakeReservationsComponent implements OnInit {
   isRoomReserved(room, workingHour): boolean {
     let reserved = false;
     this.reservations.forEach(reservation => {
-      if (reservation.roomData.name === room && workingHour >= reservation.startTime && workingHour <= reservation.endTime) {
+      if (reservation.roomData.name === room && workingHour >= reservation.startTime && workingHour < reservation.endTime) {
         reserved = true;
       }
     });
