@@ -1,26 +1,38 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="container-fluid">
-  <form class="row" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <div class="col m3">
-      <label for="calendar">Date</label>
-      <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
-      <label for="roomName">Room name</label>
-      <input formControlName="roomName" id="roomName" type="text"/>      
-
-      <label for="roomTypeForm">Room type</label>
-      <select class="select__dd" id="roomTypeForm" name="roomTypeForm" formControlName="roomTypeForm">
-        <option *ngFor="let roomType of roomTypes" [ngValue]="roomType.toUpperCase()">{{roomType}}</option>
-      </select>
-
-      <label for="roomFloorForm">Room floor</label>
-      <select class="select__dd" id="roomFloorForm" name="roomFloorForm" formControlName="roomFloorForm">
-        <option *ngFor="let roomFloor of roomFloors" [ngValue]="roomFloor">{{roomFloor}}</option>
-      </select>
-      <button type="submit">Submit</button>
+  <div class="row">
+      <div class="col m3">
+        <form [formGroup]="calendarForm">
+          <label for="calendar">Date</label>
+          <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
+        </form>
+        <form *ngIf="this.calendarForm.get('calendar').valid && this.roomForm.get('room').value === 'All'" [formGroup]="roomFilterForm" (ngSubmit)="filterRooms()">
+          <label for="capacity">Minimum capacity</label>
+          <input formControlName="capacity" id="capacity" type="number"/>    
+    
+          <label for="roomName">Room name</label>
+          <input formControlName="roomName" id="roomName" type="text"/>      
+    
+          <label for="roomTypeForm">Room type</label>
+          <select class="select__dd" id="roomTypeForm" name="roomTypeForm" formControlName="roomTypeForm">
+            <option *ngFor="let roomType of roomTypes" [ngValue]="roomType.toUpperCase()">{{roomType}}</option>
+          </select>
+    
+          <label for="roomFloorForm">Room floor</label>
+          <select class="select__dd" id="roomFloorForm" name="roomFloorForm" formControlName="roomFloorForm">
+            <option *ngFor="let roomFloor of roomFloors" [ngValue]="roomFloor">{{roomFloor}}</option>
+          </select>
+          <button type="submit">Filter rooms</button>
+        </form>
+        <form *ngIf="this.calendarForm.get('calendar').valid" [formGroup]="roomForm" (ngSubmit)="selectRoom()">
+            <label for="room">Room</label>
+            <select class="select__dd" id="room" name="room" formControlName="room">
+              <option ngValue='All'>All</option>
+              <option *ngFor="let room of rooms" [ngValue]="room.name">{{room.name}}</option>
+            </select>
+            <button type="submit">Select room</button>
+          </form>
     </div>
-    <div class="col m3">
-      <input id="timepicker_ampm_dark" class="timepicker" type="time">
-    </div>
-  </form>
+  </div>  
 </div>
