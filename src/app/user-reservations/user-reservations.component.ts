@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { SpreadsheetComponent} from './../spreadsheet/spreadsheet.component';
+import { FormGroup, FormControl } from "@angular/forms";
+declare var $: any;
 
 @Component({
   selector: 'app-user-reservations',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserReservationsComponent implements OnInit {
 
-  constructor() { }
+  date : '';
+  constructor () {}
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
+  dataChange() {
+    console.log("CCeva");
+    $('.btn-flat .picker__close .waves-effect').click(function () {
+      console.log(this.date);
+    });
+  }
 }
+
+
