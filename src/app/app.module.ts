@@ -13,7 +13,11 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FeedComponent } from './feed/feed.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+<<<<<<< HEAD
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+=======
+import { ReactiveFormsModule, FormControl, NgModel, FormsModule } from '@angular/forms';
+>>>>>>> master
 import { ManageReservationsComponent } from './manage-reservations/manage-reservations.component';
 import { UserReservationsComponent } from './user-reservations/user-reservations.component';
 import { BrowseRoomsComponent } from './browse-rooms/browse-rooms.component';
@@ -26,9 +30,18 @@ const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
   { path: 'browse', component: HomePageComponent },
+<<<<<<< HEAD
   { path: 'feed', canActivate: [AuthGuardService], component:   FeedComponent},
   { path: 'reservations', component: UserReservationsComponent}
   
+=======
+  { path: 'feed', canActivate: [AuthGuardService], component:   FeedComponent },
+  { path: 'manage-reservations', component: ManageReservationsComponent },
+  { path: 'user-reservations', component: UserReservationsComponent },
+  { path: 'browse-rooms', component: BrowseRoomsComponent},
+  { path: 'room-layout', component: RoomsLayoutComponent},
+  { path: 'make-reservations', component: MakeReservationsComponent}
+>>>>>>> master
 ];
 
 @NgModule({
@@ -44,19 +57,23 @@ const appRoutes: Routes = [
     RoomsLayoutComponent,
     MakeReservationsComponent,
     NavBarComponent,
+<<<<<<< HEAD
     UserReservationsComponent,
     SpreadsheetComponent
+=======
+>>>>>>> master
   ],
   imports: [
     MaterializeModule,
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     Angular2FontawesomeModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [GetBgService, AuthGuardService, AuthService],
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

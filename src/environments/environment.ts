@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiUrl: 'http://localhost:5000'
+  apiUrl: 'https://smarthack2018.herokuapp.com'
+  // swagger: https://smarthack2018.herokuapp.com/swagger-ui.html#
 };

@@ -1,4 +1,22 @@
-<app-nav-bar></app-nav-bar>
-<p>
-  manage-reservations works!
-</p>
+<!-- valign container -->
+<div class="row centerContainer" id="id">
+
+  <div class="col s12 center-align">
+
+        <div class="col s12 col m6 main-component valign-wrapper">
+                <div id="see" (click)="goToSee()">
+                    <img class="responsive-img waves-effect waves-light" src="../../assets/img/stanga.png" alt="">
+                    <button class="waves-effect waves-light btn getStarted" >See your reservations</button>
+                </div>
+              </div>
+              <div class="col s12 col m6 main-component valign-wrapper">
+                <div id="pick" (click)="goToPick()">
+                    <img  class="responsive-img waves-effect waves-light" src="../../assets/img/dreapta.png" alt="">
+                    <button class="waves-effect waves-light btn getStarted" > Pick a reservation </button>
+                </div>
+        </div>
+  </div> 
+</div>
+
+
+
