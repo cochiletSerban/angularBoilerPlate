@@ -1,6 +1,9 @@
 html, body{
    height: 100%;
 }
+* {
+  box-sizing: border-box;
+}
 
 /* sets global color palette 
    #A6E275 light
@@ -14,5 +17,5 @@ nav, button  {
 }
 
 .btn:hover {
-  background-color:#7EC146 !important;
+  background-color:rgba(125, 193, 70, 0.555) !important;
 }
