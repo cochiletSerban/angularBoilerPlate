@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col m3">
+    <div class="col m2">
       <form [formGroup]="calendarForm">
         <label for="calendar">Date</label>
         <input id ="calendar" formControlName="calendar" type="text" (ngModelChange)="dateChanged()" [(ngModel)]="date" name="datepicker" materialize="pickadate" [materializeParams]="params"/>
@@ -47,7 +47,7 @@
       </form>
       <button *ngIf="this.endHourForm.valid" (click)="saveReservation()">Reserve room</button>
     </div>
-    <div class="col m9 container-scroll" *ngIf="roomForm.get('room').value === 'All'">
+    <div class="col m10" *ngIf="roomForm.get('room').value === 'All'">
       <div class="row row-no-white">
         <div class="col s2 color"></div>
         <div class="col s2 color" *ngFor="let room of rooms">{{room.name}}</div>
@@ -58,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div class="col m9 container-scroll" *ngIf="roomForm.get('room').value !== 'All'">
+    <div class="col m10 container-scroll" *ngIf="roomForm.get('room').value !== 'All'">
         <div class="row row-no-white">
           <div class="col s2 color"></div>
           <div class="col s10 color">{{roomForm.get('room').value}}</div>
