@@ -14,9 +14,10 @@ img {
 #container{
     text-align:center;
     font-weight:bold;
-    border:2px solid black;
-    height: 100%;
-    background-color:rgb(47,151,132);
+    /* border:2px solid black; */
+   
+    /* background-color:rgb(47,151,132); */
+    background-color: Gainsboro;
 }
 
 .col, .row{
@@ -87,6 +88,170 @@ img {
     width:100%;
 }
 
+#rome {
+    background: url("../../assets/img/rome.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#budapest {
+    background: url("../../assets/img/budapest.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#madrid {
+    background: url("../../assets/img/madrid.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#london {
+    background: url("../../assets/img/london.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#sofia {
+    background: url("../../assets/img/sofia.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#minsk {
+    background: url("../../assets/img/minsk.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#amsterdam {
+    background: url("../../assets/img/amsterdam.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+#chisinau {
+    background: url("../../assets/img/chisinau.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#athens {
+    background: url("../../assets/img/athens.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#helsinki {
+    background: url("../../assets/img/helsinki.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#san_marino {
+    background: url("../../assets/img/san_marino.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#vienna {
+    background: url("../../assets/img/vienna.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#chicago {
+    background: url("../../assets/img/chicago.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#washington {
+    background: url("../../assets/img/washington.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#los_angeles {
+        background: url("../../assets/img/los_angeles.jpg");
+        height:100%;
+        width:100%;
+        background-position: center center; 
+        background-size:cover;
+        background-repeat:no-repeat;
+}
+
+#san_francisco{
+    background: url("../../assets/img/san_francisco.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#new_york {
+    background: url("../../assets/img/new_york.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#philadelphia {
+    background: url("../../assets/img/philadelphia.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
 
 #layer1 {
     opacity: 0.5;
@@ -99,7 +264,11 @@ img {
     opacity: 0.8;
 }
 
-h5	{
+h5 {
     padding-bottom: 20px;
     margin :0;
+}
+
+h3 {
+    margin-top: 10px;
 }

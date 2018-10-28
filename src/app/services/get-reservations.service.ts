@@ -31,7 +31,7 @@ export class GetReservationsService  {
   }
 
   saveReservation(date: string, email: string, roomName: string, startTime: number, endTime: number) {
-    let queryParam = new HttpParams().set('email', email); // replace with user email
+    let queryParam = new HttpParams().set('email', email);
     queryParam = queryParam.append('date', date);
     queryParam = queryParam.append('roomName', roomName);
     queryParam = queryParam.append('startTime', startTime.toString());
