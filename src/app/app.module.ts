@@ -22,7 +22,11 @@ import { MakeReservationsComponent } from './make-reservations/make-reservations
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
+<<<<<<< HEAD
 import { AuthInterceptor } from './interceptor';
+=======
+import { GetRoomsService } from './services/get-rooms.service';
+>>>>>>> master
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
