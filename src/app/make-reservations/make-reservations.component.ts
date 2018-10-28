@@ -7,6 +7,7 @@ import { GetReservationsService } from '../services/get-reservations.service';
 import { GetRoomsService } from '../services/get-rooms.service';
 import { Reservation } from '../models/reservation';
 import { Room } from '../models/room';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-make-reservations',
@@ -86,7 +87,8 @@ export class MakeReservationsComponent implements OnInit {
   startingHours = [];
   endingHours = [];
 
-  constructor(private _getReservationsService: GetReservationsService, private _getRoomService: GetRoomsService) { }
+  constructor(private _getReservationsService: GetReservationsService,
+     private _getRoomService: GetRoomsService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit() {
     this.calendarForm = new FormGroup({
@@ -123,6 +125,12 @@ export class MakeReservationsComponent implements OnInit {
     });
     this.roomFilterForm.valueChanges.subscribe(data => this.filterRooms());
     this.roomForm.get('room').valueChanges.subscribe(data => this.selectRoom());
+
+    this._route.queryParamMap.subscribe(params => {
+      if (params.get('room')) {
+        this.roomForm.get('room').setValue(params.get('room'));
+      }
+    });
   }
 
   dateChanged() {
@@ -190,8 +198,7 @@ export class MakeReservationsComponent implements OnInit {
   }
 
   saveReservation() {
-    // TODO: replace email
-    this._getReservationsService.saveReservation(this.date, 'vasile@gmail.com',
+    this._getReservationsService.saveReservation(this.date, localStorage.getItem('email'),
       this.roomForm.get('room').value, this.startHourForm.get('startHour').value, this.endHourForm.get('endHour').value)
       .subscribe(data => {
         this.getReservations();
