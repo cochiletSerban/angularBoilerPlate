@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService,
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
