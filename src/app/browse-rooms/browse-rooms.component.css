@@ -18,7 +18,8 @@
     /*needed to let divs get up to 100vh*/
     overflow: auto;
     height: 100%;
-    background-color: rgb(47, 151, 132);
+    background-color: rgb(47, 151, 132); 
+   
     /* fall back colors*/
   }
   
