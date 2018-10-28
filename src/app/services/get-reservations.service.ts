@@ -10,6 +10,7 @@ export class GetReservationsService  {
 
   getReservations (date:string, email:string, roomName:string, startTime:number, endTime:number, capacity:number, floor:number, roomType:string): Observable<any>{
     let queryParam = new HttpParams().set('page', '0');
+    console.log(roomName);
     if (date != null)
       queryParam = queryParam.append('date', date);
     if (email != null)
@@ -27,6 +28,16 @@ export class GetReservationsService  {
     if (roomType != null)
       queryParam = queryParam.append('roomType', roomType);
     return this._http.get<any>(environment.apiUrl + '/reservation/findBy', {params : queryParam});
+  }
+
+  saveReservation(date: string, email: string, roomName: string, startTime: number, endTime: number) {
+    let queryParam = new HttpParams().set('email', email); // replace with user email
+    queryParam = queryParam.append('date', date);
+    queryParam = queryParam.append('roomName', roomName);
+    queryParam = queryParam.append('startTime', startTime.toString());
+    queryParam = queryParam.append('endTime', endTime.toString());
+    console.log(queryParam);
+    return this._http.request<any>('post', environment.apiUrl + '/reservation/add', {params : queryParam});
   }
 
 }
