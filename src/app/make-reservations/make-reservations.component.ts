@@ -79,7 +79,7 @@ export class MakeReservationsComponent implements OnInit {
   params = [{ format: 'yyyy-mm-dd'}];
   actions = new EventEmitter<string|MaterializeAction>();
   roomTypes = ['All', 'Video', 'Scrum', 'Enterprise'];
-  roomFloors = ['All', 0, 1, 2, 3];
+  roomFloors = [0, 1, 2, 3];
   reservations: Reservation[] = [];
   rooms: Room[];
   startHourForm: FormGroup;
@@ -98,7 +98,7 @@ export class MakeReservationsComponent implements OnInit {
       'roomName': new FormControl(''),
       'capacity': new FormControl([0]),
       'roomTypeForm': new FormControl('ALL'),
-      'roomFloorForm': new FormControl('All')
+      'roomFloorForm': new FormControl(0)
     });
     this.roomForm = new FormGroup({
       'room': new FormControl('All')

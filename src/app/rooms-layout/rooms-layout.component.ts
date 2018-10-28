@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rooms-layout',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomsLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) {
+   }
 
   ngOnInit() {
+  }
+
+  navigateTo(roomName) {
+    this.route.navigate(['/make-reservations'], { queryParams: { room: roomName }})
   }
 
 }
