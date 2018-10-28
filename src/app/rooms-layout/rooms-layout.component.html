@@ -1,182 +1,250 @@
 <app-nav-bar></app-nav-bar>
 <div class="row" id="container">
-				
+    
+    <h3> Floor 1 </h3>
     <div class="col s12 m4 l4" id="rooms">
-      <div id="berlin">
+      <div id="berlin" (click)="navigateTo('Berlin')">
         <div id="layer1">
           <h5>Berlin</h5>
           <h5> Type <i class="material-icons">personal_video</i> </h5>
-          <h5>40 <i class="material-icons">group</i></h5>
+          <h5>10 <i class="material-icons">group</i></h5>
         </div>
       </div>
     </div>
       
     <div class="col s12 m4 l4" id="rooms">
-      <div id="paris">
+      <div id="paris" (click)="navigateTo('Paris')">
         <div id="layer1">
           <h5>Paris</h5>
           <h5>Type <i class="material-icons">add_location</i></h5> 
-          <h5>30 <i class="material-icons">group</i></h5>
+          <h5>7 <i class="material-icons">group</i></h5>
         </div>
       </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="copenhagen">
+        <div id="copenhagen" (click)="navigateTo('Copenhagen')">
           <div id="layer1">
             <h5>Copenhagen</h5>
             <h5>Type <i class="material-icons">work</i></h5>
-            <h5>60 <i class="material-icons">group</i></h5>
-          </div>
-        </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="bucharest">
-          <div id="layer1">
-            <h5>Bucharest</h5>
-            <h5>Type <i class="material-icons">personal_video</i></h5>
-            <h5>30 <i class="material-icons">group</i></h5>
-          </div>
-      </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-      <div id="kiev" >
-        <div id="layer1">
-          <h5>Kiev</h5>
-          <h5>Type <i class="material-icons">add_location</i></h5>
-          <h5>30 <i class="material-icons">group</i></h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-      <div id="stockholm">
-        <div id="layer1">
-          <h5>Stockholm</h5>
-          <h5>Type <i class="material-icons">work</i></h5>
-          <h5>60 <i class="material-icons">group</i></h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="rome">
-          <div id="layer1">
-            <h5>Rome</h5>
-            <h5>Type <i class="material-icons">add_location</i></h5>
-            <h5>40 <i class="material-icons">group</i></h5>
-          </div>
-        </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="madrid">
-          <div id="layer1">
-            <h5>Madrid</h5>
-            <h5>Type <i class="material-icons">personal_video</i></h5>
-            <h5>25 <i class="material-icons">group</i></h5>
-          </div>
-        </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="budapest">
-          <div id="layer1">
-            <h5>Budapest</h5>
-            <h5>Type <i class="material-icons">personal_video</i></h5>
-            <h5>35 <i class="material-icons">group</i></h5>
-          </div>
-        </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="london">
-          <div id="layer1">
-            <h5>London</h5>
-            <h5>Type <i class="material-icons">work</i></h5>
-            <h5>50 <i class="material-icons">group</i></h5>
-          </div>
-        </div>
-    </div>
-
-    <div class="col s12 m4 l4" id="rooms">
-        <div id="sofia">
-          <div id="layer1">
-            <h5>Sofia</h5>
-            <h5>Type <i class="material-icons">add_location</i></h5>
             <h5>20 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="amsterdam">
+        <div id="bucharest" (click)="navigateTo('Bucharest')">
+          <div id="layer1">
+            <h5>Bucharest</h5>
+            <h5>Type <i class="material-icons">personal_video</i></h5>
+            <h5>6 <i class="material-icons">group</i></h5>
+          </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+      <div id="kiev" (click)="navigateTo('Kiev')" >
+        <div id="layer1">
+          <h5>Kiev</h5>
+          <h5>Type <i class="material-icons">add_location</i></h5>
+          <h5>12 <i class="material-icons">group</i></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+      <div id="stockholm" (click)="navigateTo('Stockholm')">
+        <div id="layer1">
+          <h5>Stockholm</h5>
+          <h5>Type <i class="material-icons">work</i></h5>
+          <h5>18 <i class="material-icons">group</i></h5>
+        </div>
+      </div>
+    </div>
+ 
+
+    <h3 id="margined"> Floor 2 </h3>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="rome" (click)="navigateTo('Rome')">
+          <div id="layer1">
+            <h5>Rome</h5>
+            <h5>Type <i class="material-icons">add_location</i></h5>
+            <h5>10 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="madrid" (click)="navigateTo('Madrid')">
+          <div id="layer1">
+            <h5>Madrid</h5>
+            <h5>Type <i class="material-icons">personal_video</i></h5>
+            <h5>5 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="budapest" (click)="navigateTo('Budapest')">
+          <div id="layer1">
+            <h5>Budapest</h5>
+            <h5>Type <i class="material-icons">personal_video</i></h5>
+            <h5>8 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="london" (click)="navigateTo('London')">
+          <div id="layer1">
+            <h5>London</h5>
+            <h5>Type <i class="material-icons">work</i></h5>
+            <h5>15 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="sofia" (click)="navigateTo('Sofia')">
+          <div id="layer1">
+            <h5>Sofia</h5>
+            <h5>Type <i class="material-icons">add_location</i></h5>
+            <h5>10 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="amsterdam" (click)="navigateTo('Amsterdam')">
           <div id="layer1">
             <h5>Amsterdam</h5>
             <h5>Type <i class="material-icons">work</i></h5>
-            <h5>60 <i class="material-icons">group</i></h5>
+            <h5>20 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
+    <h3 id="margined"> Floor 3 </h3>
+
     <div class="col s12 m4 l4" id="rooms">
-        <div id="minsk">
+        <div id="minsk" (click)="navigateTo('Minsk')">
           <div id="layer1">
             <h5>Minsk</h5>
             <h5>Type <i class="material-icons">add_location</i></h5>
-            <h5>25 <i class="material-icons">group</i></h5>
+            <h5>14 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="chisinau">
+        <div id="chisinau" (click)="navigateTo('Chisinau')">
           <div id="layer1">
             <h5>Chisinau</h5>
             <h5>Type <i class="material-icons">add_location</i></h5>
-            <h5>30 <i class="material-icons">group</i></h5>
+            <h5>12 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="athens">
+        <div id="athens" (click)="navigateTo('Athens')">
           <div id="layer1">
             <h5>Athens</h5>
             <h5>Type <i class="material-icons">personal_video</i></h5>
-            <h5>30 <i class="material-icons">group</i></h5>
+            <h5>8 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="helsinki">
+        <div id="helsinki" (click)="navigateTo('Helsinki')">
           <div id="layer1">
             <h5>Helsinki</h5>
             <h5>Type <i class="material-icons">work</i></h5>
-            <h5>45 <i class="material-icons">group</i></h5>
+            <h5>16 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="vienna">
+        <div id="vienna" (click)="navigateTo('Vienna')">
           <div id="layer1">
             <h5>Vienna</h5>
             <h5>Type <i class="material-icons">add_location</i></h5>
-            <h5> 20 <i class="material-icons">group</i></h5>
+            <h5> 10 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
 
     <div class="col s12 m4 l4" id="rooms">
-        <div id="san_marino">
+        <div id="san_marino" (click)="navigateTo('San Marino')">
           <div id="layer1">
             <h5>San Marino</h5>
             <h5>Type <i class="material-icons">personal_video</i></h5>
-            <h5>30 <i class="material-icons">group</i></h5>
+            <h5>10 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <h3 id="margined"> Floor 4 </h3>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="washington" (click)="navigateTo('Washington')">
+          <div id="layer1">
+            <h5>Washington</h5>
+            <h5>Type <i class="material-icons">personal_video</i></h5>
+            <h5>8 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="chicago" (click)="navigateTo('Chicago')">
+          <div id="layer1">
+            <h5>Chicago</h5>
+            <h5>Type <i class="material-icons">work</i></h5>
+            <h5>20 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="los_angeles" (click)="navigateTo('Los Angeles')">
+          <div id="layer1">
+            <h5>Los Angeles</h5>
+            <h5>Type <i class="material-icons">add_location</i></h5>
+            <h5>5 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="san_francisco" (click)="navigateTo('San Francisco')">
+          <div id="layer1">
+            <h5>San Francisco</h5>
+            <h5>Type <i class="material-icons">personal_video</i></h5>
+            <h5>10 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="new_york" (click)="navigateTo('New York')">
+          <div id="layer1">
+            <h5>New York</h5>
+            <h5>Type <i class="material-icons">add_location</i></h5>
+            <h5>8 <i class="material-icons">group</i></h5>
+          </div>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l4" id="rooms">
+        <div id="philadelphia" (click)="navigateTo('Philadelphia')">
+          <div id="layer1">
+            <h5>Philadelphia</h5>
+            <h5>Type <i class="material-icons">work</i></h5>
+            <h5>20 <i class="material-icons">group</i></h5>
           </div>
         </div>
     </div>
