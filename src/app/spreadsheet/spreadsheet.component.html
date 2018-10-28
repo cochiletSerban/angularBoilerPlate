@@ -1,6 +1,7 @@
 <div class="container" *ngFor="let hour of workingHours"> 
   <div class="row">
         <div class="col s4 m1 grid-example"><span class="flow-text">{{hour.hour}}</span></div>
-        <div class="col l11 grid-example color" *ngIf="hour.reserved">Room {{hour.room}} (floor {{hour.floor}})</div>
-        <div class="col l11 grid-example" *ngIf="!hour.reserved"></div>
+        <div class="col l8 grid-example color" *ngIf="hour.reserved">Room {{hour.room}} (floor {{hour.floor}})</div>
+        <div class="col l8 grid-example" *ngIf="!hour.reserved"></div>
+        <div class="waves-effect waves-light btn" (click)="deleteReservations(hour.id)" *ngIf="hour.reserved && isStartReservation(hour.id)">X</div>
   </div>

@@ -40,4 +40,13 @@ export class GetReservationsService  {
     return this._http.request<any>('post', environment.apiUrl + '/reservation/add', {params : queryParam});
   }
 
+  deleteReservation(date: string, email: string, roomName: string, startTime: number, endTime: number) {
+    let queryParam = new HttpParams().set('email', email); // replace with user email
+    queryParam = queryParam.append('date', date);
+    queryParam = queryParam.append('roomName', roomName);
+    queryParam = queryParam.append('startTime', startTime.toString());
+    queryParam = queryParam.append('endTime', endTime.toString());
+    return this._http.request<any>('delete', environment.apiUrl + '/reservation/delete', {params : queryParam});
+  }
+
 }
