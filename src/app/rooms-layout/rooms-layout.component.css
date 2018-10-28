@@ -199,6 +199,60 @@ img {
     background-repeat:no-repeat;
 }
 
+#chicago {
+    background: url("../../assets/img/chicago.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#washington {
+    background: url("../../assets/img/washington.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#los_angeles {
+        background: url("../../assets/img/los_angeles.jpg");
+        height:100%;
+        width:100%;
+        background-position: center center; 
+        background-size:cover;
+        background-repeat:no-repeat;
+}
+
+#san_francisco{
+    background: url("../../assets/img/san_francisco.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#new_york {
+    background: url("../../assets/img/new_york.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+#philadelphia {
+    background: url("../../assets/img/philadelphia.jpg");
+    height:100%;
+    width:100%;
+    background-position: center center; 
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
 #layer1 {
     opacity: 0.5;
     background-color: black;
@@ -210,7 +264,11 @@ img {
     opacity: 0.8;
 }
 
-h5	{
+h5 {
     padding-bottom: 20px;
     margin :0;
+}
+
+#margined{
+    margin: 40px 0 25px 0;
 }
