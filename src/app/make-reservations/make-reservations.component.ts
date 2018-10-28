@@ -198,8 +198,7 @@ export class MakeReservationsComponent implements OnInit {
   }
 
   saveReservation() {
-    // TODO: replace email
-    this._getReservationsService.saveReservation(this.date, 'vasile@gmail.com',
+    this._getReservationsService.saveReservation(this.date, localStorage.getItem('email'),
       this.roomForm.get('room').value, this.startHourForm.get('startHour').value, this.endHourForm.get('endHour').value)
       .subscribe(data => {
         this.getReservations();

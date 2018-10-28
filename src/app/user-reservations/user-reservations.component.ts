@@ -146,7 +146,7 @@ export class UserReservationsComponent implements OnInit {
 
   dateChange() {
     $("#pisat").val('');
-    this._getReservationService.getReservations(this.date, null, null, null, null, null, null, null).subscribe(resp => {
+    this._getReservationService.getReservations(this.date, localStorage.getItem('email'), null, null, null, null, null, null).subscribe(resp => {
       if (resp._embedded) {
         this.reservations = resp._embedded.reservation;
       } else {
