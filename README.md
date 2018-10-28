@@ -1,4 +1,11 @@
 # Piky
 
-Ignore the pictures with Jessica Nigri on the background of the landing page that is just a test query ;)
+Angular 5 application for facility room management. The application is secured using JWT technology.
 
+#Deploy
+
+The application is deployed on Azure: 
+https://piky2.azurewebsites.net/
+
+Application's back-end can be found at location:
+https://github.com/ParaschivGeorge/smarthack2018
