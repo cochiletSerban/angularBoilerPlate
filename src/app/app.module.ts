@@ -5,7 +5,7 @@ import { Angular2FontawesomeModule } from  'angular2-fontawesome/angular2-fontaw
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GetBgService } from './services/get-bg.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -22,18 +22,20 @@ import { MakeReservationsComponent } from './make-reservations/make-reservations
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { GetReservationsService } from './services/get-reservations.service';
+<<<<<<< HEAD
+import { AuthInterceptor } from './interceptor';
+=======
 import { GetRoomsService } from './services/get-rooms.service';
+>>>>>>> master
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: AuthPageComponent },
-  { path: 'browse', component: HomePageComponent },
-  { path: 'feed', canActivate: [AuthGuardService], component:   FeedComponent },
-  { path: 'manage-reservations', component: ManageReservationsComponent },
-  { path: 'user-reservations', component: UserReservationsComponent },
-  { path: 'browse-rooms', component: BrowseRoomsComponent},
-  { path: 'room-layout', component: RoomsLayoutComponent},
-  { path: 'make-reservations', component: MakeReservationsComponent}
+  { path: 'manage-reservations', canActivate: [AuthGuardService], component: ManageReservationsComponent },
+  { path: 'user-reservations', canActivate: [AuthGuardService], component: UserReservationsComponent },
+  { path: 'browse-rooms',canActivate: [AuthGuardService], component: BrowseRoomsComponent},
+  { path: 'room-layout',canActivate: [AuthGuardService], component: RoomsLayoutComponent},
+  { path: 'make-reservations',canActivate: [AuthGuardService], component: MakeReservationsComponent}
 ];
 
 @NgModule({
@@ -62,7 +64,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService, GetRoomsService],
+  providers: [GetBgService, AuthGuardService, AuthService, NgModel, GetReservationsService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

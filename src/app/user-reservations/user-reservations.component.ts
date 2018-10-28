@@ -121,6 +121,7 @@ export class UserReservationsComponent implements OnInit {
       roomType: ""
     }
   ];
+  backup : any [] = this.workingHours;
 
   constructor (private _getReservationService : GetReservationsService) {}
 
@@ -128,7 +129,7 @@ export class UserReservationsComponent implements OnInit {
   }
 
   isRoomReserved() {
-    if (this.reservations) {
+    if (this.reservations.length > 0) {
       for (let reservation of this.reservations) {
         let start = reservation.startTime;
         let end = reservation.endTime;
@@ -144,9 +145,16 @@ export class UserReservationsComponent implements OnInit {
   }
 
   dateChange() {
+    $("#pisat").val('');
     this._getReservationService.getReservations(this.date, null, null, null, null, null, null, null).subscribe(resp => {
-      console.log(resp);
-      this.reservations = resp._embedded.reservation;
+      if (resp._embedded) {
+        this.reservations = resp._embedded.reservation;
+      } else {
+        this.reservations = [];
+      }
+      for (let hour of this.workingHours) {
+        hour.reserved = false;
+      }
       this.isRoomReserved();
     })
   }

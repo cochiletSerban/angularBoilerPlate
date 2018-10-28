@@ -16,6 +16,9 @@ export class AuthService {
   constructor(private http:HttpClient) {}
 
   isLogedIn() {
+    if ( localStorage.getItem('token') !=null )
+      this.userStatus = true;
+    else this.userStatus = false;
     return this.userStatus;
   }
 
@@ -23,19 +26,23 @@ export class AuthService {
    return this.http.post(environment.apiUrl + '/register', user);
   }
 
-  private logUser(token){
+  private logUser(token, user){
     this.userStatus = true;
     this.token = token;
+    localStorage.setItem('token', token);
+    localStorage.setItem('email', user.email);
+
     return this.userStatus;
   }
 
   login(user:User) {
     return this.http.post<LoginResponse>(environment.apiUrl + '/login', {email:user.email, password:user.password})
-      .map(resp => this.logUser(resp.token))
+      .map(resp => this.logUser(resp.token, user))
   }
 
   logout(){
     if(this.isLogedIn) {
+      localStorage.clear();
       this.token = null;
       this.userStatus = false;
     }
