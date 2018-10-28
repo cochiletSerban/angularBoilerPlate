@@ -2,7 +2,7 @@
 
 Angular 5 application for facility room management. The application is secured using JWT technology.
 
-#Deploy
+# Deploy
 
 The application is deployed on Azure: 
 https://piky2.azurewebsites.net/
